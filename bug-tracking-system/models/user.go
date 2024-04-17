@@ -1,6 +1,6 @@
-package auth
+package models
 
-import "github.com/google/uuid"
+import "prueba-tecnica1-labora/bug-tracking-system/shared"
 
 type User struct {
 	Id       string
@@ -12,26 +12,22 @@ type User struct {
 var (
 	Users = [3]User{
 		{
-			Id:       generateUUID(),
+			Id:       shared.GenerateUUID(),
 			Username: "admin",
 			Password: "root",
 			Role:     "MANAGER",
 		},
 		{
-			Id:       generateUUID(),
+			Id:       shared.GenerateUUID(),
 			Username: "dev",
 			Password: "developer",
 			Role:     "DEVELOPER",
 		},
 		{
-			Id:       generateUUID(),
+			Id:       shared.GenerateUUID(),
 			Username: "qa",
 			Password: "tester",
 			Role:     "TESTER",
 		},
 	}
 )
-
-func generateUUID() string {
-	return uuid.New().String()[:8]
-}
