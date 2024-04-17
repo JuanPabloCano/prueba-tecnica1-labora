@@ -2,6 +2,7 @@ package presenters
 
 import (
 	"fmt"
+	"prueba-tecnica1-labora/bug-tracking-system/auth"
 	"prueba-tecnica1-labora/bug-tracking-system/shared"
 )
 
@@ -16,6 +17,24 @@ func InitMenu() {
 
 		switch choice {
 		case 1:
+			fmt.Println("Ingrese usuario: ")
+			username := shared.GetScannerString()
+			fmt.Println("Ingrese contraseña: ")
+			password := shared.GetScannerString()
+
+			user := auth.GetUserByUsernameAndPassword(username, password)
+			if user.Id != "" {
+				switch user.Role {
+				case "MANAGER":
+					InitManagerMenu()
+				case "DEVELOPER":
+					InitDeveloperMenu()
+				case "TESTER":
+					InitTesterMenu()
+				}
+			} else {
+				fmt.Println("Credenciales inválidas, intentelo de nuevo")
+			}
 		case 0:
 			fmt.Println("Hasta luego")
 			return
