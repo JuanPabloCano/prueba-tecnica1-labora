@@ -17,7 +17,7 @@ func main() {
 		fmt.Println("1. Ejercicio jugadores de futbol")
 		fmt.Println("2. Ejercicio FizzBuzz")
 		fmt.Println("3. Ejercicio Menu Packaging")
-		fmt.Println("4. Ejercicio entregable")
+		fmt.Println("4. Ejercicio entregable (Sistema de seguimiento de Bugs)")
 		fmt.Println("5. Salir")
 		fmt.Print("Seleccione una opción: ")
 		fmt.Scanln(&choice)

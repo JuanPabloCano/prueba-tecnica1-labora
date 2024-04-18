@@ -15,17 +15,20 @@ func InitManagerMenu() {
 		fmt.Println("Seleccione una opción: ")
 		choice := shared.GetScanner()
 
-		switch choice {
-		case 1:
-			fmt.Println("Ingrese un nombre para la tarea: ")
-			name := shared.GetScannerString()
-			manager.CreateTask(name)
-		case 2:
-		case 3:
-			fmt.Println("Hasta pronto")
-			return
-		default:
-			fmt.Println("Opción inválida, intentelo nuevamente")
+		if choice != -1 {
+			switch choice {
+			case 1:
+				fmt.Println("Ingrese un nombre para la tarea: ")
+				name := shared.GetScannerString()
+				manager.CreateTask(name)
+			case 2:
+				manager.GenerateBugReport()
+			case 3:
+				fmt.Println("Hasta pronto")
+				return
+			default:
+				fmt.Println("Opción inválida, intentelo nuevamente")
+			}
 		}
 	}
 }

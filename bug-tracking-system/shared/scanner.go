@@ -9,7 +9,10 @@ import (
 
 func GetScanner() int {
 	var choice int
-	fmt.Scanln(&choice)
+	_, err := fmt.Scanln(&choice)
+	if err != nil {
+		return -1
+	}
 	return choice
 }
 
